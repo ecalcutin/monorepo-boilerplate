@@ -1,0 +1,34 @@
+{
+  "name": "monorepo-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:web": "npm run start --workspace=web",
+    "build": "npm run build --workspace=core"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecalcutin/monorepo-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ecalcutin/monorepo-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ecalcutin/monorepo-boilerplate#readme",
+  "workspaces": [
+    "packages/shared",
+    "packages/web",
+    "packages/core"
+  ],
+  "dependencies": {
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}
