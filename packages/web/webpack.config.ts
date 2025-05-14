@@ -6,36 +6,33 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import merge from 'webpack-merge';
 
-import { configs } from '@packages/shared';
+import sharedConfig from '../../webpack.config';
 
-export default merge<Configuration & DevServerConfiguration>(
-  configs.sharedWebpackConfig,
-  {
-    entry: './src/index.tsx',
-    target: 'web',
-    output: {
-      path: path.resolve(__dirname, 'build'),
-      publicPath: '/',
-      filename: '[name].bundle.js',
-      clean: true,
-    },
-
-    devServer: {
-      port: 8080,
-    },
-
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: 'public/index.html',
-      }),
-      new CopyPlugin({
-        patterns: [
-          {
-            from: path.resolve(process.cwd(), 'build'),
-            to: path.resolve(process.cwd(), '..', 'core', 'build'),
-          },
-        ],
-      }),
-    ],
+export default merge<Configuration & DevServerConfiguration>(sharedConfig, {
+  entry: './src/index.tsx',
+  target: 'web',
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
+    filename: '[name].bundle.js',
+    clean: true,
   },
-);
+
+  devServer: {
+    port: 8080,
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(process.cwd(), 'build'),
+          to: path.resolve(process.cwd(), '..', 'core', 'build'),
+        },
+      ],
+    }),
+  ],
+});

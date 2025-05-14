@@ -1,18 +1,9 @@
 {
   "name": "@packages/shared",
   "type": "commonjs",
-  "main": "index.js",
-  "exports": {
-    ".": {
-      "import": "./index.ts",
-      "require": "./index.ts",
-      "types": "./index.d.ts"
-    },
-    "./interfaces": {
-      "import": "./src/interfaces",
-      "require": "./index.ts",
-      "types": "./index.d.ts"
-    }
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc"
   },
   "devDependencies": {}
 }

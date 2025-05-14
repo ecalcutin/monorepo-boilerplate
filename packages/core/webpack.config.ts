@@ -3,9 +3,9 @@ import { Configuration } from 'webpack';
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
 
-import { configs } from '@packages/shared';
+import sharedConfig from '../../webpack.config';
 
-export default merge<Configuration>(configs.sharedWebpackConfig, {
+export default merge<Configuration>(sharedConfig, {
   entry: './src/index.ts',
   target: 'node',
   externals: [nodeExternals()],
