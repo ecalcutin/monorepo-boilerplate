@@ -1,17 +1,24 @@
-import { NestFactory } from '@nestjs/core';
+import express, { type Request, type Response } from 'express';
 
-import { AppModule } from './modules/app';
+import render from './utils/render';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+const app = express();
 
-  await app.listen(3000);
-}
+app.use('/', express.static(__dirname));
+console.log(__dirname);
 
-bootstrap()
-  .catch(error => {
-    console.error(error);
-  })
-  .then(() => {
-    console.log('App started');
-  });
+app.get('/test', async (request: Request, response: Response) => {
+  try {
+    const html = await render();
+    response.status(200).send(html);
+  } catch (e) {
+    console.log(e);
+    response.status(500).json({
+      error: e,
+    });
+  }
+});
+
+app.listen(3000, () => {
+  process.stdout.write(`Server is listening on port ${3000}`);
+});

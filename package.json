@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:web": "npm run start --workspace=web",
-    "build": "npm run build --workspace=core"
+    "build": "npm run build -w packages/web && npm run build -w packages/core"
   },
   "repository": {
     "type": "git",
@@ -20,15 +19,17 @@
   },
   "homepage": "https://github.com/ecalcutin/monorepo-boilerplate#readme",
   "workspaces": [
-    "packages/shared",
     "packages/web",
-    "packages/core"
+    "packages/core",
+    "packages/shared"
   ],
-  "dependencies": {
-    "rxjs": "^7.8.2"
-  },
   "devDependencies": {
+    "esbuild-loader": "^4.3.0",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1",
+    "webpack-node-externals": "^3.0.0"
   }
 }

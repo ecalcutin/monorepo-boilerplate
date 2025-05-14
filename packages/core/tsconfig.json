@@ -1,11 +1,4 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "composite": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "ESNext",
-    "module": "CommonJS",
-    "outDir": "build"
-  }
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {}
 }

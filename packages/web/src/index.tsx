@@ -1,8 +1,16 @@
-import { createRoot } from 'react-dom/client';
-
+import React from 'react';
+import { hydrateRoot } from 'react-dom/client';
 import { App } from './App';
 
-const container = document.getElementById('root');
-const root = createRoot(container!);
+// This will run in the browser and hydrate the server-rendered HTML
+if (typeof window !== 'undefined') {
+  hydrateRoot(
+    document.getElementById('root')!,
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  );
+}
 
-root.render(<App />);
+// Export for SSR
+export { App };

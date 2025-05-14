@@ -1,19 +1,23 @@
 {
-  "name": "core",
+  "name": "@packages/core",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@nestjs/common": "^11.1.1",
-    "@nestjs/core": "^11.1.1",
-    "@nestjs/platform-express": "^11.1.1",
-    "reflect-metadata": "^0.2.2"
+    "@packages/shared": "file:../shared",
+    "@packages/web": "file:../web",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/webpack-node-externals": "^3.0.4",
+    "webpack-node-externals": "^3.0.0"
   }
 }
