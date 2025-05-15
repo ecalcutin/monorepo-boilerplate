@@ -9,6 +9,7 @@ const bootstrap = async () => {
 };
 
 bootstrap().catch(error => {
+  // eslint-disable-next-line
   console.error(error);
   process.exit(1);
 });
