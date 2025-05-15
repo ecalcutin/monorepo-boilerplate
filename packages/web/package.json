@@ -8,7 +8,8 @@
   "type": "commonjs",
   "main": "build/index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "eslint --ext .ts ./src --fix"
   },
   "dependencies": {
     "react": "^19.1.0",

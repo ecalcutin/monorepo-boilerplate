@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+
 import { SSRController } from './ssr.controller';
 import { SSRService } from './ssr.service';
 

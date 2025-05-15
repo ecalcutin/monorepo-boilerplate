@@ -1,4 +1,5 @@
 import { Controller, Get, Inject } from '@nestjs/common';
+
 import { SSRService } from './ssr.service';
 
 @Controller()
