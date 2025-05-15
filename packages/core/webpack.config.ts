@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { Configuration } from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import merge from 'webpack-merge';
 import nodeExternals from 'webpack-node-externals';
 
@@ -14,4 +14,29 @@ export default merge<Configuration>(sharedConfig, {
     filename: 'server.js',
     clean: false,
   },
+  plugins: [
+    new webpack.IgnorePlugin({
+      checkResource(resource: string) {
+        const lazyImports = [
+          'class-validator',
+          'class-transformer',
+          '@nestjs/microservices',
+          '@nestjs/websockets/socket-module',
+          '@nestjs/microservices/microservices-module',
+        ];
+
+        if (!lazyImports.includes(resource)) {
+          return false;
+        }
+        try {
+          require.resolve(resource, {
+            paths: [process.cwd()],
+          });
+        } catch {
+          return true;
+        }
+        return false;
+      },
+    }),
+  ],
 });
