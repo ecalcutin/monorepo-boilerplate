@@ -3,7 +3,8 @@
   "type": "commonjs",
   "main": "build/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint ./src --fix"
   },
   "devDependencies": {}
 }

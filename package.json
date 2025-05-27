@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build -w packages/web && npm run build -w packages/core",
-    "lint": "npm run lint -w packages/core && npm run lint -w packages/web",
+    "lint": "npm run lint -w packages/core && npm run lint -w packages/web && npm run lint -w packages/shared",
     "prepare": "husky"
   },
   "repository": {
