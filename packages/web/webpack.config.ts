@@ -19,7 +19,7 @@ export default merge<Configuration & DevServerConfiguration>(sharedConfig, {
   },
 
   devServer: {
-    port: 8080,
+    port: process.env.APP_PORT || 8080,
   },
 
   plugins: [

@@ -8,6 +8,7 @@
   "type": "commonjs",
   "main": "build/index.js",
   "scripts": {
+    "dev": "webpack serve",
     "build": "webpack",
     "lint": "eslint ./src --fix"
   },
