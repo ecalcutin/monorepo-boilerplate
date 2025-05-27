@@ -1,15 +1,15 @@
 import path from 'node:path';
 
+import CopyPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { Configuration } from 'webpack';
 import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import CopyPlugin from 'copy-webpack-plugin';
 import merge from 'webpack-merge';
 
 import sharedConfig from '../../webpack.config';
 
 export default merge<Configuration & DevServerConfiguration>(sharedConfig, {
-  entry: './src/index.tsx',
+  entry: './src/client-entry.tsx',
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'build'),
